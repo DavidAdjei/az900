@@ -2,6 +2,7 @@ import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { requireAuth, AuthedRequest } from "../middleware/auth";
 import { getLearningState, DOMAIN_ORDER } from "../lib/learningProgress";
+import { ExamSession, ExamStatus } from "@prisma/client";
 
 const router = Router();
 
@@ -24,37 +25,58 @@ async function isEligible(userId: string) {
 }
 
 /** Grades a session against ExamQuestion answer keys and marks it finalized. Idempotent. */
-async function finalizeSession(session: { id: string; status: string; questionIds: unknown; answers: unknown }) {
-  if (session.status !== "IN_PROGRESS") return session;
+async function finalizeSession(session: ExamSession) {
+  if (session.status !== ExamStatus.IN_PROGRESS) return session;
 
   const questionIds = session.questionIds as string[];
   const answers = (session.answers as Record<string, string[]>) ?? {};
 
-  const questions = await prisma.examQuestion.findMany({ where: { id: { in: questionIds } } });
+  const questions = await prisma.examQuestion.findMany({
+    where: {
+      id: {
+        in: questionIds
+      }
+    }
+  });
+
   const byId = new Map(questions.map((q) => [q.id, q]));
 
   let correctCount = 0;
+
   for (const qId of questionIds) {
     const q = byId.get(qId);
     if (!q) continue;
+
     const correct = (q.correctChoiceIds as string[]) ?? [];
     const chosen = answers[qId] ?? [];
-    const isCorrect = chosen.length === correct.length && [...chosen].sort().join(",") === [...correct].sort().join(",");
+
+    const isCorrect =
+      chosen.length === correct.length &&
+      [...chosen].sort().join(",") === [...correct].sort().join(",");
+
     if (isCorrect) correctCount++;
   }
 
-  const score = questionIds.length ? Math.round((correctCount / questionIds.length) * 100) : 0;
+  const score = questionIds.length
+    ? Math.round((correctCount / questionIds.length) * 100)
+    : 0;
+
   const now = new Date();
-  const isExpired = now > (session as any).expiresAt;
+
+  const isExpired = now > session.expiresAt;
 
   return prisma.examSession.update({
-    where: { id: session.id },
+    where: {
+      id: session.id
+    },
     data: {
-      status: isExpired ? "EXPIRED" : "SUBMITTED",
+      status: isExpired
+        ? ExamStatus.EXPIRED
+        : ExamStatus.SUBMITTED,
       correctCount,
       score,
-      submittedAt: now,
-    },
+      submittedAt: now
+    }
   });
 }
 
