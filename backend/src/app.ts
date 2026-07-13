@@ -21,6 +21,10 @@ app.use(
 );
 app.use(express.json());
 
+app.get("/", (_req, res) => {
+  res.json({ message: "Welcome to the AZ-900 API" });
+});
+
 app.get("/api/health", (_req, res) => {
   res.json({ status: "ok" });
 });
