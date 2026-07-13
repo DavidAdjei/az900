@@ -1,0 +1,504 @@
+[
+  {
+    "id": "q2-01",
+    "prompt": "A company needs its resources to survive a complete Azure region outage and wants read access to the replicated data even during normal operations. Which storage redundancy option should they choose?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "RA-GRS (Read-Access Geo-Redundant Storage)"
+      },
+      {
+        "id": "b",
+        "text": "LRS (Locally Redundant Storage)"
+      },
+      {
+        "id": "c",
+        "text": "ZRS (Zone-Redundant Storage)"
+      },
+      {
+        "id": "d",
+        "text": "Hot tier Blob Storage"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "RA-GRS replicates data to a paired region AND allows read access to that secondary copy at any time \u2014 LRS and ZRS don't protect against a full regional outage, and 'tier' is unrelated to redundancy."
+  },
+  {
+    "id": "q2-02",
+    "prompt": "Which Azure networking service provides a private, dedicated connection between an on-premises datacenter and Azure that does not traverse the public internet?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ExpressRoute"
+      },
+      {
+        "id": "b",
+        "text": "VPN Gateway"
+      },
+      {
+        "id": "c",
+        "text": "Azure Load Balancer"
+      },
+      {
+        "id": "d",
+        "text": "Azure Content Delivery Network"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "ExpressRoute is a private, dedicated circuit that bypasses the public internet entirely, offering higher reliability and lower latency than an internet-based VPN Gateway connection."
+  },
+  {
+    "id": "q2-03",
+    "prompt": "A company needs to route incoming web traffic to different backend server pools based on the URL path (e.g., '/images/*' vs '/api/*'). Which Azure service should they use?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Azure Application Gateway"
+      },
+      {
+        "id": "b",
+        "text": "Azure Load Balancer"
+      },
+      {
+        "id": "c",
+        "text": "Azure DNS"
+      },
+      {
+        "id": "d",
+        "text": "Azure ExpressRoute"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Application Gateway operates at Layer 7 and can route based on HTTP attributes like URL path. Load Balancer operates at Layer 4 and only sees IP/port, not URL content."
+  },
+  {
+    "id": "q2-04",
+    "prompt": "Which two of the following are valid reasons to use Azure Kubernetes Service (AKS) instead of Azure Container Instances (ACI)? (Choose two.)",
+    "choices": [
+      {
+        "id": "a",
+        "text": "You need to orchestrate many interdependent containers with automatic scaling and self-healing"
+      },
+      {
+        "id": "b",
+        "text": "You need to run a single, short-lived container for a one-off batch job"
+      },
+      {
+        "id": "c",
+        "text": "You are running a complex, production-grade microservices application"
+      },
+      {
+        "id": "d",
+        "text": "You want the absolute fastest possible container startup with zero orchestration"
+      }
+    ],
+    "correctChoiceIds": [
+      "a",
+      "c"
+    ],
+    "multiSelect": true,
+    "explanation": "AKS is built for orchestrating multiple containers at scale in production. ACI is the better fit for simple, single-container, short-lived workloads where orchestration isn't needed."
+  },
+  {
+    "id": "q2-05",
+    "prompt": "An organization wants to enforce that a specific storage account can never be accidentally deleted, even by users with Owner-level access. What should they configure?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "A CanNotDelete resource lock"
+      },
+      {
+        "id": "b",
+        "text": "An RBAC Reader role assignment"
+      },
+      {
+        "id": "c",
+        "text": "An Azure Policy audit rule"
+      },
+      {
+        "id": "d",
+        "text": "A resource tag"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Resource locks override even Owner-level RBAC permissions. A CanNotDelete lock specifically blocks deletion while still allowing modification; a ReadOnly lock blocks both."
+  },
+  {
+    "id": "q2-06",
+    "prompt": "Which Azure service is specifically designed to securely store and manage secrets, encryption keys, and certificates for applications?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Azure Key Vault"
+      },
+      {
+        "id": "b",
+        "text": "Microsoft Entra ID"
+      },
+      {
+        "id": "c",
+        "text": "Azure Policy"
+      },
+      {
+        "id": "d",
+        "text": "Azure Monitor"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Azure Key Vault centrally and securely stores secrets like connection strings, API keys, and certificates so they don't end up hardcoded in application source code."
+  },
+  {
+    "id": "q2-07",
+    "prompt": "A company wants a chatbot feature added to their app quickly, using a pre-built API for natural language understanding, without training a custom model. Which service fits best?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Azure Cognitive Services"
+      },
+      {
+        "id": "b",
+        "text": "Azure Machine Learning"
+      },
+      {
+        "id": "c",
+        "text": "Azure Databricks"
+      },
+      {
+        "id": "d",
+        "text": "Azure Synapse Analytics"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Azure Cognitive Services offers pre-built AI APIs (including language understanding) ready to call immediately. Azure Machine Learning is for building and training custom models from scratch."
+  },
+  {
+    "id": "q2-08",
+    "prompt": "Which of the following correctly orders the Azure resource management hierarchy from broadest to narrowest scope?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Management Groups \u2192 Subscriptions \u2192 Resource Groups \u2192 Resources"
+      },
+      {
+        "id": "b",
+        "text": "Subscriptions \u2192 Management Groups \u2192 Resources \u2192 Resource Groups"
+      },
+      {
+        "id": "c",
+        "text": "Resource Groups \u2192 Subscriptions \u2192 Management Groups \u2192 Resources"
+      },
+      {
+        "id": "d",
+        "text": "Resources \u2192 Resource Groups \u2192 Management Groups \u2192 Subscriptions"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "The hierarchy flows Management Groups (broadest, can contain multiple subscriptions) \u2192 Subscriptions \u2192 Resource Groups \u2192 individual Resources (narrowest)."
+  },
+  {
+    "id": "q2-09",
+    "prompt": "A company's application needs single-digit-millisecond response times and automatic data replication across five continents. Which database service is purpose-built for this?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Azure Cosmos DB"
+      },
+      {
+        "id": "b",
+        "text": "Azure SQL Database"
+      },
+      {
+        "id": "c",
+        "text": "Azure Table Storage"
+      },
+      {
+        "id": "d",
+        "text": "Azure Database for MySQL"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Azure Cosmos DB is designed specifically for global distribution and low-latency access at massive scale, with configurable consistency levels across regions."
+  },
+  {
+    "id": "q2-10",
+    "prompt": "Which two of the following statements about Availability Zones are correct? (Choose two.)",
+    "choices": [
+      {
+        "id": "a",
+        "text": "A region that supports Availability Zones has a minimum of three separate zones"
+      },
+      {
+        "id": "b",
+        "text": "Every Azure region supports Availability Zones"
+      },
+      {
+        "id": "c",
+        "text": "Availability Zones protect against a single datacenter failure within a region"
+      },
+      {
+        "id": "d",
+        "text": "Availability Zones replicate data to a different continent"
+      }
+    ],
+    "correctChoiceIds": [
+      "a",
+      "c"
+    ],
+    "multiSelect": true,
+    "explanation": "Availability Zones are physically separate datacenters within the same region (minimum of three where supported), protecting against a single datacenter's failure \u2014 not every region supports them, and they don't span continents (that's what region pairs/geo-redundancy are for)."
+  },
+  {
+    "id": "q2-11",
+    "prompt": "Which Azure service lets you connect to a VM's desktop or SSH session through the Azure Portal without ever giving that VM a public IP address?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Azure Bastion"
+      },
+      {
+        "id": "b",
+        "text": "Azure Firewall"
+      },
+      {
+        "id": "c",
+        "text": "Azure Traffic Manager"
+      },
+      {
+        "id": "d",
+        "text": "Network Security Group"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Azure Bastion provides secure RDP/SSH access directly through the portal, so the target VM never needs a public-facing IP address, significantly reducing its attack surface."
+  },
+  {
+    "id": "q2-12",
+    "prompt": "A company wants to reduce their Azure VM costs by reusing Windows Server licenses they already own with active Software Assurance. What should they use?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Azure Hybrid Benefit"
+      },
+      {
+        "id": "b",
+        "text": "Reserved Instances"
+      },
+      {
+        "id": "c",
+        "text": "Spot Instances"
+      },
+      {
+        "id": "d",
+        "text": "The Azure Pricing Calculator"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Azure Hybrid Benefit lets organizations apply existing on-premises licenses (with Software Assurance) toward Azure compute costs, reducing what they'd otherwise pay for licensing in Azure."
+  },
+  {
+    "id": "q2-13",
+    "prompt": "The diagram below shows Azure's resource hierarchy. Based on the diagram, at which level would you apply a policy so it automatically cascades down to every subscription shown?",
+    "diagramSvg": "<svg viewBox=\"0 0 700 270\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;height:auto;background:#10161D;border-radius:8px\"><defs>\n  <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n    <path d=\"M0,0 L10,5 L0,10 z\" fill=\"#8996A6\"/>\n  </marker>\n</defs>\n<rect x=\"270\" y=\"20\" width=\"160\" height=\"55\" rx=\"8\" fill=\"#1F2A37\" stroke=\"#E8A33D\" stroke-width=\"1.5\"/>\n<text x=\"350.0\" y=\"41.5\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Management Group</text>\n<text x=\"350.0\" y=\"59.5\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">Contoso Corp</text>\n<rect x=\"120\" y=\"110\" width=\"140\" height=\"55\" rx=\"8\" fill=\"#171F29\" stroke=\"#4FADA6\" stroke-width=\"1.5\"/>\n<text x=\"190.0\" y=\"131.5\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Subscription A</text>\n<text x=\"190.0\" y=\"149.5\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">Production</text>\n<rect x=\"440\" y=\"110\" width=\"140\" height=\"55\" rx=\"8\" fill=\"#171F29\" stroke=\"#4FADA6\" stroke-width=\"1.5\"/>\n<text x=\"510.0\" y=\"131.5\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Subscription B</text>\n<text x=\"510.0\" y=\"149.5\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">Development</text>\n<rect x=\"60\" y=\"200\" width=\"120\" height=\"50\" rx=\"8\" fill=\"#1F2A37\" stroke=\"#8B7FD1\" stroke-width=\"1.5\"/>\n<text x=\"120.0\" y=\"219.0\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Resource Group</text>\n<text x=\"120.0\" y=\"237.0\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">rg-web-prod</text>\n<rect x=\"220\" y=\"200\" width=\"120\" height=\"50\" rx=\"8\" fill=\"#1F2A37\" stroke=\"#8B7FD1\" stroke-width=\"1.5\"/>\n<text x=\"280.0\" y=\"219.0\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Resource Group</text>\n<text x=\"280.0\" y=\"237.0\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">rg-data-prod</text>\n<rect x=\"380\" y=\"200\" width=\"120\" height=\"50\" rx=\"8\" fill=\"#1F2A37\" stroke=\"#8B7FD1\" stroke-width=\"1.5\"/>\n<text x=\"440.0\" y=\"219.0\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Resource Group</text>\n<text x=\"440.0\" y=\"237.0\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">rg-web-dev</text>\n<rect x=\"520\" y=\"200\" width=\"120\" height=\"50\" rx=\"8\" fill=\"#1F2A37\" stroke=\"#8B7FD1\" stroke-width=\"1.5\"/>\n<text x=\"580.0\" y=\"219.0\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Resource Group</text>\n<text x=\"580.0\" y=\"237.0\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">rg-data-dev</text>\n<line x1=\"320\" y1=\"75\" x2=\"190\" y2=\"110\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n<line x1=\"380\" y1=\"75\" x2=\"510\" y2=\"110\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n<line x1=\"160\" y1=\"165\" x2=\"120\" y2=\"200\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n<line x1=\"200\" y1=\"165\" x2=\"280\" y2=\"200\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n<line x1=\"480\" y1=\"165\" x2=\"440\" y2=\"200\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n<line x1=\"520\" y1=\"165\" x2=\"580\" y2=\"200\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n</svg>",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Management Group"
+      },
+      {
+        "id": "b",
+        "text": "Resource Group"
+      },
+      {
+        "id": "c",
+        "text": "Individual Resource"
+      },
+      {
+        "id": "d",
+        "text": "Region"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "As the diagram shows, Management Groups sit above Subscriptions in the hierarchy \u2014 policies and RBAC applied at that level cascade down to every subscription (and everything inside them)."
+  },
+  {
+    "id": "q2-14",
+    "prompt": "Based on the network diagram below, which Azure service belongs in the box between the client and the two VMs, if the requirement is to route traffic purely on IP/port with the lowest possible latency (no HTTP-level routing needed)?",
+    "diagramSvg": "<svg viewBox=\"0 0 700 240\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;height:auto;background:#10161D;border-radius:8px\"><defs>\n  <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n    <path d=\"M0,0 L10,5 L0,10 z\" fill=\"#8996A6\"/>\n  </marker>\n</defs>\n<rect x=\"30\" y=\"110\" width=\"110\" height=\"60\" rx=\"8\" fill=\"#171F29\" stroke=\"#2A3644\" stroke-width=\"1.5\"/>\n<text x=\"85.0\" y=\"134.0\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Client</text>\n<text x=\"85.0\" y=\"152.0\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">browser</text>\n<rect x=\"280\" y=\"100\" width=\"140\" height=\"80\" rx=\"8\" fill=\"#1F2A37\" stroke=\"#E8A33D\" stroke-width=\"1.5\"/>\n<text x=\"350.0\" y=\"134.0\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">???</text>\n<text x=\"350.0\" y=\"152.0\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">routes traffic</text>\n<rect x=\"560\" y=\"60\" width=\"110\" height=\"55\" rx=\"8\" fill=\"#171F29\" stroke=\"#4FADA6\" stroke-width=\"1.5\"/>\n<text x=\"615.0\" y=\"81.5\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">VM 1</text>\n<text x=\"615.0\" y=\"99.5\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">web-01</text>\n<rect x=\"560\" y=\"150\" width=\"110\" height=\"55\" rx=\"8\" fill=\"#171F29\" stroke=\"#4FADA6\" stroke-width=\"1.5\"/>\n<text x=\"615.0\" y=\"171.5\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">VM 2</text>\n<text x=\"615.0\" y=\"189.5\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">web-02</text>\n<line x1=\"140\" y1=\"140\" x2=\"280\" y2=\"140\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n<line x1=\"420\" y1=\"125\" x2=\"560\" y2=\"90\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n<line x1=\"420\" y1=\"140\" x2=\"560\" y2=\"175\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n</svg>",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Azure Load Balancer"
+      },
+      {
+        "id": "b",
+        "text": "Azure Application Gateway"
+      },
+      {
+        "id": "c",
+        "text": "Azure Front Door content routing"
+      },
+      {
+        "id": "d",
+        "text": "Azure Traffic Manager"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Azure Load Balancer operates at Layer 4 (TCP/UDP) \u2014 fast, protocol-agnostic traffic distribution with no HTTP awareness needed. Application Gateway would be the answer only if URL-based routing or a WAF were required."
+  },
+  {
+    "id": "q2-15",
+    "prompt": "Which of the following would you use to filter outbound network traffic by fully qualified domain name (FQDN), not just by IP address?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Azure Firewall"
+      },
+      {
+        "id": "b",
+        "text": "Network Security Group (NSG)"
+      },
+      {
+        "id": "c",
+        "text": "Azure Load Balancer"
+      },
+      {
+        "id": "d",
+        "text": "Azure DNS"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Azure Firewall supports FQDN-based filtering and threat intelligence, going beyond the basic IP/port/protocol filtering that Network Security Groups provide."
+  },
+  {
+    "id": "q2-16",
+    "prompt": "A company needs three VMs to all read and write to the same shared folder concurrently. Which storage option should they use?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Azure Files"
+      },
+      {
+        "id": "b",
+        "text": "Azure Disks"
+      },
+      {
+        "id": "c",
+        "text": "Azure Table Storage"
+      },
+      {
+        "id": "d",
+        "text": "Azure Queue Storage"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Azure Files supports concurrent SMB/NFS access from multiple machines at once. Azure Disks are generally attached to a single VM at a time."
+  },
+  {
+    "id": "q2-17",
+    "prompt": "Which two of the following statements about Azure Functions are correct? (Choose two.)",
+    "choices": [
+      {
+        "id": "a",
+        "text": "In the Consumption plan, billing is based on actual execution rather than pre-allocated capacity"
+      },
+      {
+        "id": "b",
+        "text": "Azure Functions require the customer to manage the underlying operating system"
+      },
+      {
+        "id": "c",
+        "text": "Azure Functions are commonly used for small, event-triggered pieces of code"
+      },
+      {
+        "id": "d",
+        "text": "Azure Functions cannot be triggered by HTTP requests"
+      }
+    ],
+    "correctChoiceIds": [
+      "a",
+      "c"
+    ],
+    "multiSelect": true,
+    "explanation": "Azure Functions is Microsoft's flagship serverless offering: event-triggered code (HTTP requests, timers, queue messages, etc.) with consumption-based billing and no OS management required."
+  },
+  {
+    "id": "q2-18",
+    "prompt": "An employee accidentally deletes an important file stored on an Azure VM. Which service would help restore it to a previous point in time?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Azure Backup"
+      },
+      {
+        "id": "b",
+        "text": "Azure Site Recovery"
+      },
+      {
+        "id": "c",
+        "text": "Azure Traffic Manager"
+      },
+      {
+        "id": "d",
+        "text": "Azure Advisor"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Azure Backup restores data to a previous point in time after accidental loss or corruption. Azure Site Recovery is for failing over an entire workload during a regional disaster, not restoring individual files."
+  },
+  {
+    "id": "q2-19",
+    "prompt": "Which Azure service would let a business route users to the nearest of three regional deployments of the same application, using DNS-based routing?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Azure Traffic Manager"
+      },
+      {
+        "id": "b",
+        "text": "Azure Load Balancer"
+      },
+      {
+        "id": "c",
+        "text": "Network Security Group"
+      },
+      {
+        "id": "d",
+        "text": "Azure ExpressRoute"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Azure Traffic Manager is a global, DNS-based traffic router that directs clients to the best-performing or nearest healthy regional endpoint \u2014 unlike Load Balancer, which operates within a single region on actual traffic."
+  }
+]

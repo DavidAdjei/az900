@@ -1,0 +1,200 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Domain {
+  CLOUD_CONCEPTS
+  ARCHITECTURE_SERVICES
+  MANAGEMENT_GOVERNANCE
+}
+
+model User {
+  id                String               @id @default(cuid())
+  email             String               @unique
+  passwordHash      String
+  name              String
+  createdAt         DateTime             @default(now())
+  attempts          Attempt[]
+  reviews           FlashcardReview[]
+  chapterQuizzes    ChapterQuizAttempt[]
+  chapterProgress   ChapterProgress[]
+  conceptViews      ConceptView[]
+  examSessions      ExamSession[]
+}
+
+enum ExamStatus {
+  IN_PROGRESS
+  SUBMITTED
+  EXPIRED
+}
+
+model ExamQuestion {
+  id               String   @id @default(cuid())
+  domain           Domain
+  prompt           String   @db.Text
+  choices          Json
+  correctChoiceIds Json
+  multiSelect      Boolean  @default(false)
+  diagramSvg       String?  @db.Text
+  explanation      String   @db.Text
+
+  @@index([domain])
+}
+
+model ExamSession {
+  id             String     @id @default(cuid())
+  userId         String
+  status         ExamStatus @default(IN_PROGRESS)
+  questionIds    Json
+  answers        Json       @default("{}")
+  totalQuestions Int
+  correctCount   Int?
+  score          Int?
+  startedAt      DateTime   @default(now())
+  expiresAt      DateTime
+  submittedAt    DateTime?
+  user           User       @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+}
+
+model Question {
+  id               String    @id @default(cuid())
+  domain           Domain
+  prompt           String    @db.Text
+  choices          Json
+  correctChoiceId  String
+  correctChoiceIds Json?
+  multiSelect      Boolean   @default(false)
+  diagramSvg       String?   @db.Text
+  explanation      String    @db.Text
+  attempts         Attempt[]
+}
+
+model Attempt {
+  id              String   @id @default(cuid())
+  userId          String
+  questionId      String
+  chosenChoiceId  String
+  chosenChoiceIds Json?
+  correct         Boolean
+  createdAt       DateTime @default(now())
+  user            User     @relation(fields: [userId], references: [id])
+  question        Question @relation(fields: [questionId], references: [id])
+
+  @@index([userId])
+  @@index([questionId])
+}
+
+model Topic {
+  id            String                @id
+  domain        Domain
+  name          String
+  sortOrder     Int                   @default(0)
+  concepts      Concept[]
+  quizQuestions ChapterQuizQuestion[]
+  progress      ChapterProgress[]
+
+  @@index([domain])
+}
+
+model Concept {
+  id                String   @id
+  topicId           String
+  domain            Domain
+  term              String
+  definition        String   @db.Text
+  details           String?  @db.Text
+  plainEnglish       String?  @db.Text
+  examTips          Json?
+  gotchas           Json?
+  examples          Json?
+  quickCheckQuestion String?  @db.Text
+  quickCheckAnswer   String?  @db.Text
+  sortOrder         Int      @default(0)
+  topic             Topic    @relation(fields: [topicId], references: [id])
+  views             ConceptView[]
+
+  @@index([domain])
+  @@index([topicId])
+}
+
+model ChapterQuizQuestion {
+  id              String                @id @default(cuid())
+  topicId         String
+  prompt          String                @db.Text
+  choices         Json
+  correctChoiceId String
+  explanation     String                @db.Text
+  sortOrder       Int                   @default(0)
+  topic           Topic                 @relation(fields: [topicId], references: [id])
+  attempts        ChapterQuizAttempt[]
+
+  @@index([topicId])
+}
+
+model ChapterQuizAttempt {
+  id             String              @id @default(cuid())
+  userId         String
+  questionId     String
+  chosenChoiceId String
+  correct        Boolean
+  createdAt      DateTime            @default(now())
+  user           User                @relation(fields: [userId], references: [id])
+  question       ChapterQuizQuestion @relation(fields: [questionId], references: [id])
+
+  @@index([userId])
+  @@index([questionId])
+}
+
+model ChapterProgress {
+  id          String    @id @default(cuid())
+  userId      String
+  topicId     String
+  completed   Boolean   @default(false)
+  completedAt DateTime?
+  bestScore   Int       @default(0)
+  user        User      @relation(fields: [userId], references: [id])
+  topic       Topic     @relation(fields: [topicId], references: [id])
+
+  @@unique([userId, topicId])
+  @@index([userId])
+}
+
+model ConceptView {
+  id        String   @id @default(cuid())
+  userId    String
+  conceptId String
+  viewedAt  DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  concept   Concept  @relation(fields: [conceptId], references: [id])
+
+  @@unique([userId, conceptId])
+  @@index([userId])
+}
+
+model Flashcard {
+  id      String            @id @default(cuid())
+  domain  Domain
+  front   String            @db.Text
+  back    String            @db.Text
+  reviews FlashcardReview[]
+}
+
+model FlashcardReview {
+  id             String    @id @default(cuid())
+  userId         String
+  flashcardId    String
+  box            Int       @default(0)
+  nextReviewAt   DateTime  @default(now())
+  lastReviewedAt DateTime?
+  user           User      @relation(fields: [userId], references: [id])
+  flashcard      Flashcard @relation(fields: [flashcardId], references: [id])
+
+  @@unique([userId, flashcardId])
+}

@@ -1,0 +1,478 @@
+[
+  {
+    "id": "q1-01",
+    "prompt": "A startup wants to avoid any upfront investment in physical servers and only pay for compute as they use it. Which financial model does this describe?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "OpEx (Operational Expenditure)"
+      },
+      {
+        "id": "b",
+        "text": "CapEx (Capital Expenditure)"
+      },
+      {
+        "id": "c",
+        "text": "Fixed licensing"
+      },
+      {
+        "id": "d",
+        "text": "Depreciation-based accounting"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "OpEx means paying for what you use as an ongoing operating cost, with no large upfront purchase \u2014 the core financial shift cloud computing enables."
+  },
+  {
+    "id": "q1-02",
+    "prompt": "A retail company's e-commerce site automatically adds more web server instances during a flash sale and removes them once traffic drops, with no manual intervention. Which cloud characteristic is this?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Elasticity"
+      },
+      {
+        "id": "b",
+        "text": "Agility"
+      },
+      {
+        "id": "c",
+        "text": "Fault tolerance"
+      },
+      {
+        "id": "d",
+        "text": "High availability"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Elasticity is scaling that happens automatically in response to real-time demand, in both directions \u2014 exactly this flash-sale scenario."
+  },
+  {
+    "id": "q1-03",
+    "prompt": "A hospital must keep patient records on infrastructure it fully owns and controls due to regulation, but wants to run its public appointment-booking website in Azure. Which deployment model fits?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Hybrid cloud"
+      },
+      {
+        "id": "b",
+        "text": "Public cloud only"
+      },
+      {
+        "id": "c",
+        "text": "Private cloud only"
+      },
+      {
+        "id": "d",
+        "text": "Multi-cloud"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Hybrid cloud combines private/on-premises infrastructure with public cloud, integrated together \u2014 the regulated records stay on-prem while the public-facing site runs in Azure."
+  },
+  {
+    "id": "q1-04",
+    "prompt": "Which statement about the shared responsibility model is correct?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "The customer is always responsible for their data, regardless of service model"
+      },
+      {
+        "id": "b",
+        "text": "Microsoft is responsible for customer data in every service model"
+      },
+      {
+        "id": "c",
+        "text": "Responsibility for identity and access management transfers fully to Microsoft in PaaS"
+      },
+      {
+        "id": "d",
+        "text": "In IaaS, Microsoft patches the guest operating system"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Across IaaS, PaaS, and SaaS, the customer always retains responsibility for their data, identities, and endpoint devices \u2014 that responsibility never fully transfers to the provider."
+  },
+  {
+    "id": "q1-05",
+    "prompt": "A development team deploys code to Azure App Service and never installs an OS or patches a web server. Which service model are they using?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "PaaS"
+      },
+      {
+        "id": "b",
+        "text": "IaaS"
+      },
+      {
+        "id": "c",
+        "text": "SaaS"
+      },
+      {
+        "id": "d",
+        "text": "On-premises"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "PaaS (Platform as a Service) means Microsoft manages the OS and runtime; the customer only manages application code and data."
+  },
+  {
+    "id": "q1-06",
+    "prompt": "Which of the following are examples of SaaS? (Choose two.)",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Microsoft 365 / Outlook.com"
+      },
+      {
+        "id": "b",
+        "text": "Azure Virtual Machines"
+      },
+      {
+        "id": "c",
+        "text": "Dynamics 365"
+      },
+      {
+        "id": "d",
+        "text": "Azure App Service"
+      }
+    ],
+    "correctChoiceIds": [
+      "a",
+      "c"
+    ],
+    "multiSelect": true,
+    "explanation": "Microsoft 365 and Dynamics 365 are finished, ready-to-use applications the customer just signs into \u2014 SaaS. Azure VMs are IaaS, and App Service is PaaS."
+  },
+  {
+    "id": "q1-07",
+    "prompt": "A company runs some workloads in Azure and other workloads in AWS purely to avoid depending on a single cloud vendor. What is this strategy called?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Multi-cloud"
+      },
+      {
+        "id": "b",
+        "text": "Hybrid cloud"
+      },
+      {
+        "id": "c",
+        "text": "Private cloud"
+      },
+      {
+        "id": "d",
+        "text": "Community cloud"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Multi-cloud means using more than one public cloud provider. It's distinct from hybrid cloud, which mixes public cloud with private/on-premises infrastructure."
+  },
+  {
+    "id": "q1-08",
+    "prompt": "An application's SLA guarantees 99.9% uptime. Approximately how much downtime per year does this allow?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "About 8.7 hours"
+      },
+      {
+        "id": "b",
+        "text": "About 52 minutes"
+      },
+      {
+        "id": "c",
+        "text": "About 3.65 days"
+      },
+      {
+        "id": "d",
+        "text": "About 4.4 hours"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "99.9% uptime allows roughly 8.7 hours of downtime per year. (99% \u2248 3.65 days, 99.95% \u2248 4.4 hours, 99.99% \u2248 52.6 minutes \u2014 memorize these conversions.)"
+  },
+  {
+    "id": "q1-09",
+    "prompt": "Which of the following best describes 'serverless computing'?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Code runs on provider-managed infrastructure, billed based on execution rather than pre-allocated capacity"
+      },
+      {
+        "id": "b",
+        "text": "An application that literally requires no physical servers anywhere"
+      },
+      {
+        "id": "c",
+        "text": "A deployment model where the customer manages the physical hardware"
+      },
+      {
+        "id": "d",
+        "text": "A pricing model exclusive to SaaS applications"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Serverless doesn't mean no servers exist \u2014 it means the provider manages them entirely and the customer is billed for actual execution, not idle capacity. Azure Functions is the classic example."
+  },
+  {
+    "id": "q1-10",
+    "prompt": "A company wants to keep running a legacy application without rewriting it, but wants to eliminate the cost of maintaining physical servers. Which cloud service model minimizes their management burden the most while still letting them fully control the OS if needed?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "IaaS"
+      },
+      {
+        "id": "b",
+        "text": "SaaS"
+      },
+      {
+        "id": "c",
+        "text": "PaaS"
+      },
+      {
+        "id": "d",
+        "text": "Function as a Service only"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "IaaS (like Azure VMs) lets you lift-and-shift a legacy app with full OS control while Microsoft manages the physical hardware \u2014 a common migration path for apps that can't be rearchitected for PaaS."
+  },
+  {
+    "id": "q1-11",
+    "prompt": "Which two of the following are genuine benefits commonly cited for adopting cloud computing? (Choose two.)",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Faster time-to-market through on-demand provisioning (agility)"
+      },
+      {
+        "id": "b",
+        "text": "Guaranteed zero cost regardless of usage"
+      },
+      {
+        "id": "c",
+        "text": "Ability to scale resources to match demand (scalability)"
+      },
+      {
+        "id": "d",
+        "text": "Elimination of all responsibility for data security"
+      }
+    ],
+    "correctChoiceIds": [
+      "a",
+      "c"
+    ],
+    "multiSelect": true,
+    "explanation": "Agility (fast provisioning) and scalability (matching resources to demand) are core, well-established cloud benefits. Cloud computing is never free, and customers always retain data security responsibilities under the shared responsibility model."
+  },
+  {
+    "id": "q1-12",
+    "prompt": "The diagram below shows a company's infrastructure. Based on the diagram, what deployment model is being used?",
+    "diagramSvg": "<svg viewBox=\"0 0 700 260\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;height:auto;background:#10161D;border-radius:8px\"><defs>\n  <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n    <path d=\"M0,0 L10,5 L0,10 z\" fill=\"#8996A6\"/>\n  </marker>\n</defs>\n<rect x=\"30\" y=\"90\" width=\"180\" height=\"110\" rx=\"8\" fill=\"#171F29\" stroke=\"#2A3644\" stroke-width=\"1.5\"/>\n<text x=\"120.0\" y=\"139.0\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">On-Premises</text>\n<text x=\"120.0\" y=\"157.0\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">Patient records DB</text>\n<rect x=\"490\" y=\"90\" width=\"180\" height=\"110\" rx=\"8\" fill=\"#171F29\" stroke=\"#4FADA6\" stroke-width=\"1.5\"/>\n<text x=\"580.0\" y=\"139.0\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Azure VNet</text>\n<text x=\"580.0\" y=\"157.0\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">Booking web app</text>\n<rect x=\"255\" y=\"110\" width=\"130\" height=\"70\" rx=\"8\" fill=\"#1F2A37\" stroke=\"#E8A33D\" stroke-width=\"1.5\"/>\n<text x=\"320.0\" y=\"139.0\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">VPN Gateway</text>\n<text x=\"320.0\" y=\"157.0\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">encrypted tunnel</text>\n<line x1=\"210\" y1=\"145\" x2=\"255\" y2=\"145\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n<line x1=\"385\" y1=\"145\" x2=\"490\" y2=\"145\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n<text x=\"350\" y=\"40\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Space Grotesk, sans-serif\" font-size=\"16\" font-weight=\"600\">Company Network Diagram</text>\n</svg>",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Hybrid cloud"
+      },
+      {
+        "id": "b",
+        "text": "Public cloud only"
+      },
+      {
+        "id": "c",
+        "text": "Private cloud only"
+      },
+      {
+        "id": "d",
+        "text": "Multi-cloud"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "The diagram shows an on-premises datacenter connected via VPN Gateway to Azure resources in a VNet \u2014 a private environment integrated with the public cloud is the definition of hybrid cloud."
+  },
+  {
+    "id": "q1-13",
+    "prompt": "Based on the shared responsibility diagram below, which row represents the one set of responsibilities that stays with the customer in every single service model shown?",
+    "diagramSvg": "<svg viewBox=\"0 0 700 260\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;height:auto;background:#10161D;border-radius:8px\"><defs>\n  <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n    <path d=\"M0,0 L10,5 L0,10 z\" fill=\"#8996A6\"/>\n  </marker>\n</defs>\n<text x=\"190\" y=\"30\" fill=\"#8B7FD1\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" font-weight=\"600\" text-anchor=\"middle\">ON-PREM</text>\n<text x=\"310\" y=\"30\" fill=\"#8B7FD1\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" font-weight=\"600\" text-anchor=\"middle\">IAAS</text>\n<text x=\"430\" y=\"30\" fill=\"#8B7FD1\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" font-weight=\"600\" text-anchor=\"middle\">PAAS</text>\n<text x=\"550\" y=\"30\" fill=\"#8B7FD1\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" font-weight=\"600\" text-anchor=\"middle\">SAAS</text>\n<text x=\"20\" y=\"63\" fill=\"#E7ECF2\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\" font-weight=\"600\">Data, devices, accounts</text>\n<rect x=\"190\" y=\"45\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#8B7FD1\" opacity=\"0.85\"/>\n<rect x=\"310\" y=\"45\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#8B7FD1\" opacity=\"0.85\"/>\n<rect x=\"430\" y=\"45\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#8B7FD1\" opacity=\"0.85\"/>\n<rect x=\"550\" y=\"45\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#8B7FD1\" opacity=\"0.85\"/>\n<text x=\"20\" y=\"98\" fill=\"#E7ECF2\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\" font-weight=\"600\">Applications</text>\n<rect x=\"190\" y=\"80\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#8B7FD1\" opacity=\"0.85\"/>\n<rect x=\"310\" y=\"80\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#8B7FD1\" opacity=\"0.85\"/>\n<rect x=\"430\" y=\"80\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#8B7FD1\" opacity=\"0.85\"/>\n<rect x=\"550\" y=\"80\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#4FADA6\" opacity=\"0.85\"/>\n<text x=\"20\" y=\"133\" fill=\"#E7ECF2\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\" font-weight=\"600\">Runtime / OS</text>\n<rect x=\"190\" y=\"115\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#8B7FD1\" opacity=\"0.85\"/>\n<rect x=\"310\" y=\"115\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#8B7FD1\" opacity=\"0.85\"/>\n<rect x=\"430\" y=\"115\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#4FADA6\" opacity=\"0.85\"/>\n<rect x=\"550\" y=\"115\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#4FADA6\" opacity=\"0.85\"/>\n<text x=\"20\" y=\"168\" fill=\"#E7ECF2\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\" font-weight=\"600\">Virtualization</text>\n<rect x=\"190\" y=\"150\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#8B7FD1\" opacity=\"0.85\"/>\n<rect x=\"310\" y=\"150\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#4FADA6\" opacity=\"0.85\"/>\n<rect x=\"430\" y=\"150\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#4FADA6\" opacity=\"0.85\"/>\n<rect x=\"550\" y=\"150\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#4FADA6\" opacity=\"0.85\"/>\n<text x=\"20\" y=\"203\" fill=\"#E7ECF2\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\" font-weight=\"600\">Physical hosts/network/DC</text>\n<rect x=\"190\" y=\"185\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#8B7FD1\" opacity=\"0.85\"/>\n<rect x=\"310\" y=\"185\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#4FADA6\" opacity=\"0.85\"/>\n<rect x=\"430\" y=\"185\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#4FADA6\" opacity=\"0.85\"/>\n<rect x=\"550\" y=\"185\" width=\"100\" height=\"26\" rx=\"4\" fill=\"#4FADA6\" opacity=\"0.85\"/>\n<rect x=\"20\" y=\"225\" width=\"14\" height=\"14\" fill=\"#8B7FD1\"/>\n<text x=\"40\" y=\"236\" fill=\"#8996A6\" font-family=\"Inter, sans-serif\" font-size=\"11\">Customer-managed</text>\n<rect x=\"190\" y=\"225\" width=\"14\" height=\"14\" fill=\"#4FADA6\"/>\n<text x=\"210\" y=\"236\" fill=\"#8996A6\" font-family=\"Inter, sans-serif\" font-size=\"11\">Microsoft-managed</text>\n</svg>",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Data, devices, and accounts"
+      },
+      {
+        "id": "b",
+        "text": "Physical datacenter"
+      },
+      {
+        "id": "c",
+        "text": "Physical network"
+      },
+      {
+        "id": "d",
+        "text": "Physical hosts"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "As shown, the bottom infrastructure layers shift to the provider as you move from on-prem to IaaS to PaaS to SaaS, but the top row \u2014 data, devices, and accounts \u2014 always stays with the customer."
+  },
+  {
+    "id": "q1-14",
+    "prompt": "A company currently spends heavily on purchasing and depreciating server hardware every 3-5 years. After migrating fully to Azure and paying only for consumed resources, which shift best describes their new cost model?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "From CapEx to OpEx"
+      },
+      {
+        "id": "b",
+        "text": "From OpEx to CapEx"
+      },
+      {
+        "id": "c",
+        "text": "From consumption-based to fixed licensing"
+      },
+      {
+        "id": "d",
+        "text": "No change \u2014 both models are identical"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Moving from owning depreciating hardware (CapEx) to paying for ongoing consumption (OpEx) is the classic cloud cost-model shift tested on AZ-900."
+  },
+  {
+    "id": "q1-15",
+    "prompt": "Which of the following is the best definition of 'high availability' in a cloud context?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "A system designed to remain operational and accessible for a high percentage of time"
+      },
+      {
+        "id": "b",
+        "text": "A system that can automatically add more compute during peak load"
+      },
+      {
+        "id": "c",
+        "text": "A system that can be provisioned very quickly"
+      },
+      {
+        "id": "d",
+        "text": "A system with the lowest possible cost"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "High availability is specifically about minimizing downtime/keeping a system accessible \u2014 commonly expressed as an SLA percentage. It's related to but distinct from elasticity (automatic scaling) and agility (deployment speed)."
+  },
+  {
+    "id": "q1-16",
+    "prompt": "A team scales a single database server from 4 vCPUs to 32 vCPUs to handle more load, without adding additional server instances. What is this an example of?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Vertical scaling (scaling up)"
+      },
+      {
+        "id": "b",
+        "text": "Horizontal scaling (scaling out)"
+      },
+      {
+        "id": "c",
+        "text": "Elasticity"
+      },
+      {
+        "id": "d",
+        "text": "Fault tolerance"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Increasing the size/power of a single existing resource is vertical scaling ('scale up'). Adding more instances of a resource would be horizontal scaling ('scale out')."
+  },
+  {
+    "id": "q1-17",
+    "prompt": "Which of the following statements about private cloud is correct?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "It provides dedicated infrastructure for a single organization, offering more control but generally more management responsibility"
+      },
+      {
+        "id": "b",
+        "text": "It is always cheaper than public cloud"
+      },
+      {
+        "id": "c",
+        "text": "It cannot be hosted by a third party"
+      },
+      {
+        "id": "d",
+        "text": "It automatically includes disaster recovery to another provider"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Private cloud gives one organization exclusive infrastructure and full control, but that control comes with more ongoing management responsibility (and often more cost) than public cloud, whether it's hosted on-prem or by a third party."
+  },
+  {
+    "id": "q1-18",
+    "prompt": "Which of the following are true about the 'consumption-based' pricing model? (Choose two.)",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Customers are billed based on actual resource usage"
+      },
+      {
+        "id": "b",
+        "text": "Customers pay a fixed amount regardless of usage"
+      },
+      {
+        "id": "c",
+        "text": "It can reduce cost for workloads with variable or unpredictable demand"
+      },
+      {
+        "id": "d",
+        "text": "It requires purchasing hardware upfront"
+      }
+    ],
+    "correctChoiceIds": [
+      "a",
+      "c"
+    ],
+    "multiSelect": true,
+    "explanation": "Consumption-based pricing bills for actual usage (not a flat fee) and is especially cost-effective for variable workloads, since you're not paying for idle capacity you provisioned 'just in case.'"
+  }
+]

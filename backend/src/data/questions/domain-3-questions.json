@@ -1,0 +1,424 @@
+[
+  {
+    "id": "q3-01",
+    "prompt": "A company wants to estimate what their monthly Azure bill would look like before deploying a new set of resources. Which tool should they use?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Azure Pricing Calculator"
+      },
+      {
+        "id": "b",
+        "text": "TCO Calculator"
+      },
+      {
+        "id": "c",
+        "text": "Azure Advisor"
+      },
+      {
+        "id": "d",
+        "text": "Cost Management + Billing"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "The Pricing Calculator estimates costs for a new/planned Azure deployment. The TCO Calculator instead compares an existing on-premises setup against running the equivalent in Azure."
+  },
+  {
+    "id": "q3-02",
+    "prompt": "What is the key difference between Azure Policy and Role-Based Access Control (RBAC)?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Azure Policy governs resource configuration/compliance; RBAC governs who can perform actions on resources"
+      },
+      {
+        "id": "b",
+        "text": "Azure Policy and RBAC do exactly the same thing"
+      },
+      {
+        "id": "c",
+        "text": "RBAC governs resource configuration; Azure Policy governs user permissions"
+      },
+      {
+        "id": "d",
+        "text": "Azure Policy only applies to virtual machines"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Azure Policy enforces rules about how resources are configured (e.g., 'storage accounts must use HTTPS'), while RBAC controls who is allowed to do what. They're complementary, not interchangeable."
+  },
+  {
+    "id": "q3-03",
+    "prompt": "A web app has a 99.95% SLA and depends on a database with a 99.99% SLA. What is the approximate composite SLA of the combined solution?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "About 99.94%"
+      },
+      {
+        "id": "b",
+        "text": "About 99.99%"
+      },
+      {
+        "id": "c",
+        "text": "About 100%"
+      },
+      {
+        "id": "d",
+        "text": "About 99.95%"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Composite SLA is calculated by multiplying the individual SLAs: 0.9995 \u00d7 0.9999 \u2248 0.9994, or about 99.94% \u2014 lower than either individual component's SLA."
+  },
+  {
+    "id": "q3-04",
+    "prompt": "Which two of the following statements about Azure support plans are correct? (Choose two.)",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Basic support is free and included with every subscription"
+      },
+      {
+        "id": "b",
+        "text": "Basic support includes full technical troubleshooting for application issues"
+      },
+      {
+        "id": "c",
+        "text": "Higher-tier plans like Professional Direct offer faster response times"
+      },
+      {
+        "id": "d",
+        "text": "All support plans cost the same regardless of tier"
+      }
+    ],
+    "correctChoiceIds": [
+      "a",
+      "c"
+    ],
+    "multiSelect": true,
+    "explanation": "Basic support is free but limited to billing/subscription management, not technical troubleshooting. Paid tiers (Developer, Standard, Professional Direct, Premier/Unified) offer progressively faster response times and deeper support."
+  },
+  {
+    "id": "q3-05",
+    "prompt": "A service is currently in Public Preview. Which of the following is true?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "It typically does not have an SLA and isn't recommended for production workloads"
+      },
+      {
+        "id": "b",
+        "text": "It is fully production-ready with a guaranteed SLA"
+      },
+      {
+        "id": "c",
+        "text": "It is only available to a small group of invited customers"
+      },
+      {
+        "id": "d",
+        "text": "It has already reached General Availability"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Preview features \u2014 whether Private or Public \u2014 typically come without an SLA and aren't recommended for production use. General Availability (GA) is the stage where a full SLA applies."
+  },
+  {
+    "id": "q3-06",
+    "prompt": "Which Azure tool provides personalized recommendations across cost, security, reliability, operational excellence, and performance based on how you're actually using your resources?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Azure Advisor"
+      },
+      {
+        "id": "b",
+        "text": "Azure Service Health"
+      },
+      {
+        "id": "c",
+        "text": "Azure Status"
+      },
+      {
+        "id": "d",
+        "text": "Microsoft Purview"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Azure Advisor analyzes your actual resource configuration and usage to generate personalized recommendations across those five categories."
+  },
+  {
+    "id": "q3-07",
+    "prompt": "What is the main difference between Azure Service Health and the Azure Status page?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Service Health is personalized to a customer's specific resources; Azure Status is a public, global view"
+      },
+      {
+        "id": "b",
+        "text": "Azure Status is personalized; Service Health is public and global"
+      },
+      {
+        "id": "c",
+        "text": "They are the exact same tool with two different names"
+      },
+      {
+        "id": "d",
+        "text": "Service Health only covers billing issues"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Service Health gives personalized alerts about issues affecting the specific services/regions a customer actually uses. Azure Status is a general, public dashboard not tailored to any customer."
+  },
+  {
+    "id": "q3-08",
+    "prompt": "A company already has servers on-premises and in another public cloud, and wants to apply consistent Azure Policy and RBAC rules across all of them from a single place. Which service enables this?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Azure Arc"
+      },
+      {
+        "id": "b",
+        "text": "Azure Blueprints"
+      },
+      {
+        "id": "c",
+        "text": "Azure Advisor"
+      },
+      {
+        "id": "d",
+        "text": "Azure Site Recovery"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Azure Arc extends Azure's management and governance tools \u2014 including Policy and RBAC \u2014 to resources running outside Azure entirely, whether on-premises, in another cloud, or at the edge."
+  },
+  {
+    "id": "q3-09",
+    "prompt": "Which two of the following are true regarding Azure resource tags? (Choose two.)",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Tags are useful for organizing resources for cost reporting"
+      },
+      {
+        "id": "b",
+        "text": "Tags can be used to control who is allowed to access a resource"
+      },
+      {
+        "id": "c",
+        "text": "A resource can have multiple tags"
+      },
+      {
+        "id": "d",
+        "text": "Tags replace the need for resource groups"
+      }
+    ],
+    "correctChoiceIds": [
+      "a",
+      "c"
+    ],
+    "multiSelect": true,
+    "explanation": "Tags are name/value labels used for organization and cost reporting, and a resource can have several. They are not an access-control mechanism (that's RBAC) and don't replace the resource group hierarchy."
+  },
+  {
+    "id": "q3-10",
+    "prompt": "Which team ensures fairness in their facial recognition AI by testing it across a wide range of skin tones and demographics to avoid biased results? Which Responsible AI principle does this reflect?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Fairness"
+      },
+      {
+        "id": "b",
+        "text": "Transparency"
+      },
+      {
+        "id": "c",
+        "text": "Accountability"
+      },
+      {
+        "id": "d",
+        "text": "Privacy & Security"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Fairness is the Responsible AI principle focused on ensuring AI systems treat all people fairly and avoid discriminatory bias against any group."
+  },
+  {
+    "id": "q3-11",
+    "prompt": "A company wants to package a pre-approved set of policies, RBAC role assignments, and resource templates so they can quickly deploy a compliant environment to new subscriptions. What should they use?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Azure Blueprints"
+      },
+      {
+        "id": "b",
+        "text": "Azure Advisor"
+      },
+      {
+        "id": "c",
+        "text": "Azure Monitor"
+      },
+      {
+        "id": "d",
+        "text": "Reserved Instances"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Azure Blueprints packages governance artifacts \u2014 policy assignments, RBAC role assignments, and resource templates \u2014 together so they can be deployed repeatably to new subscriptions."
+  },
+  {
+    "id": "q3-12",
+    "prompt": "The diagram below shows a two-tier application. Based on the composite SLA shown, is the overall SLA of the whole solution higher or lower than the App Service's own 99.95% SLA?",
+    "diagramSvg": "<svg viewBox=\"0 0 700 260\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;height:auto;background:#10161D;border-radius:8px\"><defs>\n  <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n    <path d=\"M0,0 L10,5 L0,10 z\" fill=\"#8996A6\"/>\n  </marker>\n</defs>\n<rect x=\"60\" y=\"100\" width=\"220\" height=\"80\" rx=\"8\" fill=\"#171F29\" stroke=\"#4FADA6\" stroke-width=\"1.5\"/>\n<text x=\"170.0\" y=\"134.0\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Azure App Service</text>\n<text x=\"170.0\" y=\"152.0\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">SLA: 99.95%</text>\n<rect x=\"420\" y=\"100\" width=\"220\" height=\"80\" rx=\"8\" fill=\"#171F29\" stroke=\"#8B7FD1\" stroke-width=\"1.5\"/>\n<text x=\"530.0\" y=\"134.0\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Azure SQL Database</text>\n<text x=\"530.0\" y=\"152.0\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">SLA: 99.99%</text>\n<line x1=\"280\" y1=\"140\" x2=\"420\" y2=\"140\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n<text x=\"350.0\" y=\"132.0\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\">depends on</text>\n<text x=\"350\" y=\"220\" text-anchor=\"middle\" fill=\"#E8A33D\" font-family=\"IBM Plex Mono, monospace\" font-size=\"12\">Composite SLA = 99.95% \u00d7 99.99% \u2248 99.94%</text>\n</svg>",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Lower \u2014 chaining dependent services multiplies their SLAs together"
+      },
+      {
+        "id": "b",
+        "text": "Higher \u2014 chaining services always improves reliability"
+      },
+      {
+        "id": "c",
+        "text": "Exactly equal to 99.95%"
+      },
+      {
+        "id": "d",
+        "text": "SLA cannot be calculated for multi-service solutions"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Composite SLA multiplies the individual SLAs together (0.9995 \u00d7 0.9999 \u2248 99.94%), which is always lower than or equal to the lowest individual component \u2014 chaining dependent services doesn't improve reliability by itself."
+  },
+  {
+    "id": "q3-13",
+    "prompt": "Based on the governance diagram below, if a policy is applied at the Management Group level, which of the shown scopes will it automatically apply to?",
+    "diagramSvg": "<svg viewBox=\"0 0 700 270\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;height:auto;background:#10161D;border-radius:8px\"><defs>\n  <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n    <path d=\"M0,0 L10,5 L0,10 z\" fill=\"#8996A6\"/>\n  </marker>\n</defs>\n<rect x=\"270\" y=\"20\" width=\"160\" height=\"55\" rx=\"8\" fill=\"#1F2A37\" stroke=\"#E8A33D\" stroke-width=\"1.5\"/>\n<text x=\"350.0\" y=\"41.5\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Management Group</text>\n<text x=\"350.0\" y=\"59.5\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">Contoso Corp</text>\n<rect x=\"120\" y=\"110\" width=\"140\" height=\"55\" rx=\"8\" fill=\"#171F29\" stroke=\"#4FADA6\" stroke-width=\"1.5\"/>\n<text x=\"190.0\" y=\"131.5\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Subscription A</text>\n<text x=\"190.0\" y=\"149.5\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">Production</text>\n<rect x=\"440\" y=\"110\" width=\"140\" height=\"55\" rx=\"8\" fill=\"#171F29\" stroke=\"#4FADA6\" stroke-width=\"1.5\"/>\n<text x=\"510.0\" y=\"131.5\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Subscription B</text>\n<text x=\"510.0\" y=\"149.5\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">Development</text>\n<rect x=\"60\" y=\"200\" width=\"120\" height=\"50\" rx=\"8\" fill=\"#1F2A37\" stroke=\"#8B7FD1\" stroke-width=\"1.5\"/>\n<text x=\"120.0\" y=\"219.0\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Resource Group</text>\n<text x=\"120.0\" y=\"237.0\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">rg-web-prod</text>\n<rect x=\"220\" y=\"200\" width=\"120\" height=\"50\" rx=\"8\" fill=\"#1F2A37\" stroke=\"#8B7FD1\" stroke-width=\"1.5\"/>\n<text x=\"280.0\" y=\"219.0\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Resource Group</text>\n<text x=\"280.0\" y=\"237.0\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">rg-data-prod</text>\n<rect x=\"380\" y=\"200\" width=\"120\" height=\"50\" rx=\"8\" fill=\"#1F2A37\" stroke=\"#8B7FD1\" stroke-width=\"1.5\"/>\n<text x=\"440.0\" y=\"219.0\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Resource Group</text>\n<text x=\"440.0\" y=\"237.0\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">rg-web-dev</text>\n<rect x=\"520\" y=\"200\" width=\"120\" height=\"50\" rx=\"8\" fill=\"#1F2A37\" stroke=\"#8B7FD1\" stroke-width=\"1.5\"/>\n<text x=\"580.0\" y=\"219.0\" text-anchor=\"middle\" fill=\"#E7ECF2\" font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\">Resource Group</text>\n<text x=\"580.0\" y=\"237.0\" text-anchor=\"middle\" fill=\"#8996A6\" font-family=\"IBM Plex Mono, monospace\" font-size=\"11\">rg-data-dev</text>\n<line x1=\"320\" y1=\"75\" x2=\"190\" y2=\"110\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n<line x1=\"380\" y1=\"75\" x2=\"510\" y2=\"110\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n<line x1=\"160\" y1=\"165\" x2=\"120\" y2=\"200\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n<line x1=\"200\" y1=\"165\" x2=\"280\" y2=\"200\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n<line x1=\"480\" y1=\"165\" x2=\"440\" y2=\"200\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n<line x1=\"520\" y1=\"165\" x2=\"580\" y2=\"200\" stroke=\"#8996A6\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n</svg>",
+    "choices": [
+      {
+        "id": "a",
+        "text": "All subscriptions and resource groups underneath it"
+      },
+      {
+        "id": "b",
+        "text": "Only the specific resource group it was created in"
+      },
+      {
+        "id": "c",
+        "text": "Nothing \u2014 policies must be applied to every resource individually"
+      },
+      {
+        "id": "d",
+        "text": "Only new subscriptions created after the policy was applied"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Policies and RBAC assignments cascade down the hierarchy \u2014 applying at the Management Group level automatically covers every subscription, resource group, and resource beneath it, including future ones."
+  },
+  {
+    "id": "q3-14",
+    "prompt": "A company needs its data transfer costs minimized. Which of the following is generally true about Azure network traffic billing?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Outbound (egress) data transfer is typically billed; inbound is usually free"
+      },
+      {
+        "id": "b",
+        "text": "Inbound data transfer is typically billed; outbound is usually free"
+      },
+      {
+        "id": "c",
+        "text": "All data transfer, inbound and outbound, is always free"
+      },
+      {
+        "id": "d",
+        "text": "All data transfer, inbound and outbound, is always billed at the same rate"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "Data leaving Azure (egress) is typically billed, while inbound data transfer into Azure is generally free \u2014 an asymmetry worth remembering for cost planning."
+  },
+  {
+    "id": "q3-15",
+    "prompt": "Which tool would a company use to compare the cost of their current on-premises infrastructure against running the equivalent workload in Azure?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "TCO Calculator"
+      },
+      {
+        "id": "b",
+        "text": "Pricing Calculator"
+      },
+      {
+        "id": "c",
+        "text": "Azure Advisor"
+      },
+      {
+        "id": "d",
+        "text": "Azure Monitor"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "The Total Cost of Ownership (TCO) Calculator is specifically for comparing an existing on-premises setup's cost against the Azure equivalent \u2014 not for estimating a brand-new deployment (that's the Pricing Calculator)."
+  },
+  {
+    "id": "q3-16",
+    "prompt": "Which of the following would you use to find Microsoft's official compliance certifications (ISO, SOC, GDPR, etc.) for Azure?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "The Microsoft Trust Center"
+      },
+      {
+        "id": "b",
+        "text": "Azure Advisor"
+      },
+      {
+        "id": "c",
+        "text": "Azure Blueprints"
+      },
+      {
+        "id": "d",
+        "text": "Azure Cost Management"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "The Microsoft Trust Center (along with the Service Trust Portal for detailed audit reports) is where Microsoft publishes its official compliance certifications and documentation."
+  }
+]

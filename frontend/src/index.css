@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- Theme tokens -----------------------------------------------------
+   Dark is the default (matches the original design). Light overrides live
+   under [data-theme="light"]. Toggled via ThemeContext, which sets
+   document.documentElement.dataset.theme and persists the choice. ------- */
+:root,
+[data-theme="dark"] {
+  --color-canvas: #10161d;
+  --color-surface: #171f29;
+  --color-raised: #1f2a37;
+  --color-line: #2a3644;
+  --color-ink: #e7ecf2;
+  --color-muted: #8996a6;
+  --color-signal: #e8a33d;
+  --color-wire: #4fada6;
+  --color-node: #8b7fd1;
+}
+
+[data-theme="light"] {
+  --color-canvas: #f6f7f9;
+  --color-surface: #ffffff;
+  --color-raised: #eef1f4;
+  --color-line: #dde3ea;
+  --color-ink: #161c24;
+  --color-muted: #5b6b7c;
+  --color-signal: #c9822f;
+  --color-wire: #2f8b84;
+  --color-node: #6c5fc4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+[data-theme="dark"] body {
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 200px),
+    radial-gradient(circle at 15% 0%, rgba(139, 127, 209, 0.06), transparent 40%);
+}
+
+[data-theme="light"] body {
+  background-image:
+    linear-gradient(180deg, rgba(16, 22, 29, 0.03), transparent 200px),
+    radial-gradient(circle at 15% 0%, rgba(108, 95, 196, 0.05), transparent 40%);
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-canvas);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+}
+
+/* ---- Flashcard flip -----------------------------------------------------
+   Plain CSS 3D flip since no animation library is in use. `.flip-scene`
+   establishes the 3D perspective; `.flip-card` rotates; each face uses
+   backface-visibility so only one side is ever visible at a time. -------- */
+.flip-scene {
+  perspective: 1500px;
+}
+
+.flip-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.flip-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-face-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

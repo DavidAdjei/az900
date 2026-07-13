@@ -1,0 +1,412 @@
+{
+  "domainId": "management-governance",
+  "name": "Describe Azure Management and Governance",
+  "examWeight": "30-35%",
+  "topics": [
+    {
+      "id": "cost-management",
+      "name": "Cost Management",
+      "concepts": [
+        {
+          "id": "pricing-calculator",
+          "term": "Azure Pricing Calculator",
+          "definition": "A free web tool to estimate the cost of Azure products/services before deploying them, based on selected configuration and region.",
+          "examTips": [
+            "Pricing Calculator = estimate cost of NEW/planned resources. Don't confuse with TCO Calculator."
+          ],
+          "plainEnglish": "Before building a house, you'd get quotes for materials and labor. The Pricing Calculator is that quote, but for Azure \u2014 pick your services and configuration, and it estimates what your monthly bill would look like before you actually deploy anything.",
+          "quickCheck": {
+            "question": "You're planning a new Azure deployment and want to estimate the monthly cost before building it. What tool should you use?",
+            "answer": "The Azure Pricing Calculator \u2014 estimates cost for planned/new deployments."
+          }
+        },
+        {
+          "id": "tco-calculator",
+          "term": "Total Cost of Ownership (TCO) Calculator",
+          "definition": "A tool that compares the cost of running an existing on-premises infrastructure against the projected cost of running the equivalent workload in Azure.",
+          "examTips": [
+            "TCO Calculator = compare EXISTING on-prem costs vs. Azure. Pricing Calculator = estimate future Azure-only costs. This is a classic exam pairing."
+          ],
+          "plainEnglish": "The TCO Calculator is like comparing 'keep paying rent on my current apartment' vs. 'what would it cost to switch to a new one' \u2014 it takes your EXISTING on-premises setup and estimates how much cheaper (or not) running the same thing in Azure would be.",
+          "quickCheck": {
+            "question": "A company wants to know how much money they'd save by moving their current on-premises servers to Azure. Which tool answers this?",
+            "answer": "The TCO (Total Cost of Ownership) Calculator \u2014 compares existing on-prem costs against the Azure equivalent."
+          }
+        },
+        {
+          "id": "cost-management-billing",
+          "term": "Cost Management + Billing",
+          "definition": "An Azure portal tool for monitoring, allocating, and optimizing cloud spend, including budgets, cost analysis, and billing alerts.",
+          "details": "Lets administrators set spending budgets and receive alerts when thresholds are approached or exceeded.",
+          "gotchas": [
+            "Cost Management alerts notify you but do NOT automatically stop resources from running or block further spending unless combined with additional automation."
+          ],
+          "plainEnglish": "Cost Management + Billing is like a banking app for your Azure spend \u2014 it shows you where your money is going right now and can text you an alert when you're about to blow through your monthly budget.",
+          "quickCheck": {
+            "question": "If you set a budget alert in Cost Management and exceed it, does Azure automatically stop your resources from running?",
+            "answer": "No \u2014 by default it only alerts/notifies you. Automatically stopping resources requires additional automation on top of the alert."
+          }
+        },
+        {
+          "id": "factors-affecting-cost",
+          "term": "Factors Affecting Azure Costs",
+          "definition": "Resource type, region (prices vary by region), consumption/usage, and billing zone/network egress traffic all affect Azure costs.",
+          "examTips": [
+            "Data transfer OUT of Azure (egress) is typically billed; inbound data transfer is generally free. This asymmetry is a common exam fact."
+          ],
+          "plainEnglish": "Your Azure bill is a bit like a utility bill: it depends on what you use (resource type), where you live (region), how much you use (consumption), and even how much stuff you send out (network egress) \u2014 sending data out often costs more than bringing it in.",
+          "quickCheck": {
+            "question": "Generally speaking, is inbound data transfer into Azure or outbound data transfer out of Azure more likely to incur a charge?",
+            "answer": "Outbound (egress) traffic \u2014 data leaving Azure is typically billed, while inbound data transfer is usually free."
+          }
+        },
+        {
+          "id": "azure-free-account-credits",
+          "term": "Azure Free Account & Credits",
+          "definition": "A free tier that provides limited free services for 12 months, a set of 'always free' services, and a limited credit amount for the first 30 days for new subscribers.",
+          "gotchas": [
+            "'Always free' services have usage limits (e.g., specific VM sizes/hours) \u2014 free doesn't mean unlimited."
+          ],
+          "plainEnglish": "It's like a 'free trial month' at a gym (30-day credit) plus a handful of always-free equipment you can use forever, but with usage limits \u2014 you don't get the whole gym for free forever.",
+          "quickCheck": {
+            "question": "Are 'always free' Azure services completely unlimited with no usage caps?",
+            "answer": "No \u2014 always-free services come with specific usage limits (e.g., certain VM sizes or hours); exceeding them starts incurring charges."
+          }
+        },
+        {
+          "id": "reserved-instances-savings-plans",
+          "term": "Reserved Instances & Azure Hybrid Benefit",
+          "definition": "Reserved Instances let you pre-commit to 1 or 3 years of usage for a significant discount vs. pay-as-you-go. Azure Hybrid Benefit lets you use existing on-prem Windows Server/SQL Server licenses (with Software Assurance) to reduce Azure costs.",
+          "examTips": [
+            "Azure Hybrid Benefit is specifically about reusing EXISTING on-prem licenses in Azure \u2014 a frequent exam scenario question."
+          ],
+          "plainEnglish": "Reserved Instances are like pre-paying a year of gym membership upfront for a discount instead of paying month-to-month at full price \u2014 you commit in advance in exchange for savings. Azure Hybrid Benefit is like getting a discount because you already own equipment from a previous membership deal (existing on-prem licenses).",
+          "quickCheck": {
+            "question": "A company already owns Windows Server licenses with Software Assurance and wants to reduce their Azure VM costs using those existing licenses. What should they use?",
+            "answer": "Azure Hybrid Benefit \u2014 lets you reuse eligible on-premises licenses to reduce costs in Azure."
+          }
+        }
+      ]
+    },
+    {
+      "id": "governance-compliance",
+      "name": "Governance and Compliance",
+      "concepts": [
+        {
+          "id": "azure-policy",
+          "term": "Azure Policy",
+          "definition": "A service that creates, assigns, and enforces rules (policies) over resource configurations to ensure compliance with organizational or regulatory standards.",
+          "details": "Example: enforce that all storage accounts must use HTTPS, or restrict allowed VM SKUs/regions. Non-compliant resources can be flagged, denied, or auto-remediated.",
+          "examTips": [
+            "Azure Policy governs CONFIGURATION/compliance ('what settings are allowed'). RBAC governs ACCESS ('who can do what'). This pairing is a top exam distinction."
+          ],
+          "gotchas": [
+            "Azure Policy can DENY a non-compliant deployment outright, or simply AUDIT/flag it \u2014 know these are different effect types."
+          ],
+          "plainEnglish": "Azure Policy is like a building code inspector who checks every new construction against the rules ('all buildings must have fire exits') and can either flag violations or refuse to approve the permit \u2014 regardless of who's building it or what access they have.",
+          "quickCheck": {
+            "question": "What's the core difference between Azure Policy and RBAC?",
+            "answer": "Azure Policy governs resource CONFIGURATION/compliance (what settings are allowed). RBAC governs WHO can perform actions on resources. They solve different problems and are often used together."
+          }
+        },
+        {
+          "id": "resource-locks",
+          "term": "Resource Locks",
+          "definition": "Settings applied to a resource, resource group, or subscription that prevent accidental deletion or modification, regardless of RBAC permissions.",
+          "details": "Two types: CanNotDelete (allows read/modify but blocks delete) and ReadOnly (blocks both modify and delete).",
+          "examTips": [
+            "Locks apply even to users with Owner-level RBAC access \u2014 they override normal permissions."
+          ],
+          "gotchas": [
+            "Resource locks are inherited from parent scope to child resources but are NOT the same as RBAC or Azure Policy."
+          ],
+          "plainEnglish": "A resource lock is like putting a physical padlock on a filing cabinet even though someone technically has the master key to the room \u2014 it's an extra layer that says 'don't touch this, even if you normally could.'",
+          "quickCheck": {
+            "question": "Can a user with the Owner role delete a resource that has a CanNotDelete lock applied?",
+            "answer": "No \u2014 resource locks override even Owner-level RBAC permissions until the lock itself is removed."
+          }
+        },
+        {
+          "id": "azure-blueprints",
+          "term": "Azure Blueprints",
+          "definition": "A service for defining a repeatable set of governance artifacts (role assignments, policy assignments, ARM templates, resource groups) that can be deployed together as a package to new subscriptions.",
+          "examTips": [
+            "Blueprints = 'governance as a package' for quickly setting up compliant environments. Note: as of late 2026 Microsoft has been deprecating Blueprints in favor of Template Specs + Azure Policy initiatives \u2014 worth a quick current-docs check if this shows up on a live exam."
+          ],
+          "plainEnglish": "Azure Blueprints is like a franchise starter kit \u2014 instead of setting up a new restaurant location's permits, layout, and staffing rules one piece at a time, you deploy the whole pre-approved package at once to get a new subscription compliant and ready to go.",
+          "quickCheck": {
+            "question": "What is the purpose of Azure Blueprints?",
+            "answer": "To package and deploy a repeatable set of governance artifacts (policies, role assignments, resource templates) together, quickly setting up compliant environments in new subscriptions."
+          }
+        },
+        {
+          "id": "microsoft-purview",
+          "term": "Microsoft Purview (formerly Azure Purview / Compliance Manager)",
+          "definition": "A unified data governance and compliance service that helps organizations discover, classify, and manage sensitive data, and assess regulatory compliance risk.",
+          "gotchas": [
+            "Older AZ-900 material (like a 2021 guide) refers to this as separate tools (Azure Purview for data governance, Compliance Manager for compliance scoring) \u2014 Microsoft has since unified branding under Microsoft Purview."
+          ],
+          "plainEnglish": "Microsoft Purview is like a librarian who catalogs every book in a huge library (your data), tags which ones are sensitive, and keeps track of who's allowed to check them out \u2014 helping you understand and govern your data at scale.",
+          "quickCheck": {
+            "question": "What is Microsoft Purview primarily used for?",
+            "answer": "Discovering, classifying, and governing sensitive data, and assessing regulatory compliance risk across an organization."
+          }
+        },
+        {
+          "id": "compliance-offerings-trust-center",
+          "term": "Microsoft Trust Center & Compliance Offerings",
+          "definition": "Microsoft publishes documentation on its compliance certifications (ISO, SOC, GDPR, HIPAA, etc.) via the Trust Center, along with the Service Trust Portal for audit reports.",
+          "examTips": [
+            "Know that Azure maintains compliance certifications across many industries/regions \u2014 exam may ask you to identify the right resource (Trust Center) for finding this info, not memorize every certification."
+          ],
+          "plainEnglish": "The Trust Center is like a restaurant proudly displaying its health inspection certificates on the wall \u2014 it's where Microsoft publishes proof of its compliance certifications (ISO, SOC, GDPR, HIPAA, etc.) so customers can verify Azure meets their regulatory needs.",
+          "quickCheck": {
+            "question": "Where would you go to find Microsoft's official compliance certifications and audit reports for Azure?",
+            "answer": "The Microsoft Trust Center (and the Service Trust Portal for detailed audit reports)."
+          }
+        },
+        {
+          "id": "cloud-adoption-framework",
+          "term": "Microsoft Cloud Adoption Framework (CAF)",
+          "definition": "A set of documentation, best practices, and tools from Microsoft to guide an organization through the full lifecycle of cloud adoption: strategy, planning, readiness, migration, governance, and management.",
+          "details": "CAF isn't a product you deploy \u2014 it's a methodology/framework of guidance. It helps organizations answer questions like 'how do we structure our subscriptions,' 'what's our migration plan,' and 'how do we govern this long-term,' in a consistent, Microsoft-recommended way.",
+          "plainEnglish": "Think of the Cloud Adoption Framework like a recommended recipe and technique guide for a big renovation project \u2014 it doesn't do the renovation for you, but it lays out a proven sequence of steps (plan, prepare, migrate, govern) so you don't have to figure it all out from scratch.",
+          "examTips": [
+            "CAF is guidance/methodology, not a deployable Azure service or resource \u2014 a common exam distinction from things like Azure Policy or Blueprints, which are actual tools."
+          ],
+          "gotchas": [
+            "Don't confuse the Cloud Adoption Framework (broad organizational strategy guidance) with the Well-Architected Framework (technical best practices for individual workloads) \u2014 they're related but operate at different scopes."
+          ],
+          "quickCheck": {
+            "question": "An organization wants Microsoft-recommended guidance on how to strategically plan and govern their entire cloud migration, not just technical settings for one app. What should they consult?",
+            "answer": "The Microsoft Cloud Adoption Framework (CAF) \u2014 a methodology and set of best practices for the full cloud adoption lifecycle."
+          }
+        },
+        {
+          "id": "security-privacy-compliance-tenets",
+          "term": "Core Tenets of Security, Privacy, and Compliance",
+          "definition": "The foundational principles Azure's approach to trust is built on: protecting data confidentiality, integrity, and availability (security); giving customers control over their own data (privacy); and meeting regulatory and industry standards (compliance).",
+          "details": "Security is often summarized by the CIA triad \u2014 Confidentiality (only authorized access), Integrity (data isn't tampered with), Availability (data/services are accessible when needed). Privacy focuses on how personal data is collected, used, and controlled by the customer, not just protected from attackers. Compliance means meeting external legal/regulatory/industry requirements (documented via the Trust Center and Microsoft Purview).",
+          "plainEnglish": "Security is about keeping the bad guys out and the lights on. Privacy is about you staying in control of your own personal information, even from the company storing it. Compliance is about proving, on paper, that you're following the rules regulators and industries require. All three work together but answer different questions.",
+          "examTips": [
+            "Memorize the CIA triad for security: Confidentiality, Integrity, Availability.",
+            "Know the distinction: security = protecting against threats, privacy = customer control over data, compliance = meeting external regulatory requirements."
+          ],
+          "quickCheck": {
+            "question": "A regulation requires a company to prove, with an official audit report, that their Azure environment meets a specific industry standard. Which of the three tenets does this primarily relate to?",
+            "answer": "Compliance \u2014 meeting and demonstrating adherence to external regulatory or industry requirements."
+          }
+        }
+      ]
+    },
+    {
+      "id": "managing-deploying-resources",
+      "name": "Managing and Deploying Azure Resources",
+      "concepts": [
+        {
+          "id": "azure-portal",
+          "term": "Azure Portal",
+          "definition": "A web-based, graphical management console for creating, managing, and monitoring Azure resources.",
+          "examTips": [
+            "Portal = GUI. CLI/PowerShell = scripting. ARM/Bicep templates = declarative IaC. Know when each is the 'best' tool for a scenario."
+          ],
+          "plainEnglish": "The Azure Portal is the point-and-click dashboard \u2014 like a car's dashboard with buttons and dials \u2014 good for visual, one-off tasks, but slower than scripting when you need to do the same thing 500 times.",
+          "quickCheck": {
+            "question": "Which management tool is best for a one-time, visual exploration of your Azure resources?",
+            "answer": "The Azure Portal \u2014 a graphical, browser-based management console."
+          }
+        },
+        {
+          "id": "azure-cloud-shell",
+          "term": "Azure Cloud Shell",
+          "definition": "A browser-based, authenticated shell environment accessible from the Azure Portal, pre-configured with both Azure CLI and Azure PowerShell.",
+          "gotchas": [
+            "Cloud Shell requires an Azure Files share to persist your files/session state between sessions."
+          ],
+          "plainEnglish": "Cloud Shell is like a rental toolbox that's always stocked and ready right inside the Azure Portal \u2014 you don't need to install anything on your own laptop to start running commands.",
+          "quickCheck": {
+            "question": "What does Azure Cloud Shell need in order to persist your files and settings between sessions?",
+            "answer": "An Azure Files share, used to store your Cloud Shell environment/session data between uses."
+          }
+        },
+        {
+          "id": "cli-vs-powershell",
+          "term": "Azure CLI vs. Azure PowerShell",
+          "definition": "Azure CLI is a cross-platform command-line tool using a syntax similar to bash, popular with Linux/macOS users. Azure PowerShell is a module for managing Azure using PowerShell cmdlets, popular in Windows-centric environments.",
+          "examTips": [
+            "Both can accomplish the same tasks \u2014 the exam tests that you know they're equivalent tools, not that one is 'better'."
+          ],
+          "plainEnglish": "It's like choosing between two different but equally capable toolkits \u2014 a Linux-style toolbox (Azure CLI) or a Windows-style toolbox (Azure PowerShell). Both can do the same jobs; pick whichever fits your team's habits.",
+          "quickCheck": {
+            "question": "Can Azure CLI and Azure PowerShell both accomplish the same management tasks?",
+            "answer": "Yes \u2014 they're equivalent tools with different syntax styles; neither is inherently more capable than the other for AZ-900 purposes."
+          }
+        },
+        {
+          "id": "arm-templates",
+          "term": "Azure Resource Manager (ARM) Templates",
+          "definition": "JSON files that declaratively define the resources to deploy to a resource group, enabling Infrastructure as Code (IaC).",
+          "details": "ARM is also the name of the underlying deployment/management layer that ALL Azure management tools (Portal, CLI, PowerShell, SDKs) go through.",
+          "examTips": [
+            "ARM (Azure Resource Manager) is the management layer behind every Azure interaction \u2014 every tool ultimately calls the ARM API.",
+            "Bicep is a newer, simpler declarative language that compiles down to ARM JSON templates."
+          ],
+          "gotchas": [
+            "Don't confuse 'Azure Resource Manager' (the management/deployment layer) with 'ARM template' (the JSON IaC file format) \u2014 related but distinct terms."
+          ],
+          "plainEnglish": "An ARM template is like a blueprint for a house that a contractor can follow to build the exact same house every time, instead of a builder eyeballing a new design from scratch each time (manually clicking through the portal). This makes deployments consistent and repeatable.",
+          "quickCheck": {
+            "question": "What does 'Infrastructure as Code' mean in the context of ARM templates?",
+            "answer": "Defining your infrastructure declaratively in a file (JSON, or Bicep) so it can be deployed consistently and repeatably, instead of manually configuring resources by hand."
+          }
+        },
+        {
+          "id": "azure-arc",
+          "term": "Azure Arc",
+          "definition": "A service that extends Azure management and governance (including Azure Policy, RBAC, and monitoring) to resources running outside Azure \u2014 on-premises, in other clouds, or at the edge.",
+          "examTips": [
+            "Azure Arc is the standard exam answer for 'manage hybrid/multi-cloud resources using Azure tools.'"
+          ],
+          "plainEnglish": "Azure Arc is like a universal remote control that can operate your TV, soundbar, and streaming box \u2014 even though they're different brands \u2014 all from one place. It extends Azure's management tools (Policy, RBAC, monitoring) to resources running outside Azure entirely: on-prem, other clouds, or the edge.",
+          "quickCheck": {
+            "question": "A company has servers running on-premises and in AWS, and wants to apply consistent Azure Policy rules across all of them from one place. What service enables this?",
+            "answer": "Azure Arc \u2014 extends Azure management and governance to resources outside Azure."
+          }
+        }
+      ]
+    },
+    {
+      "id": "monitoring-tools",
+      "name": "Monitoring and Support Tools",
+      "concepts": [
+        {
+          "id": "azure-advisor",
+          "term": "Azure Advisor",
+          "definition": "A free, personalized recommendation engine that analyzes your resource configuration and usage to suggest ways to improve cost, security, reliability, operational excellence, and performance.",
+          "examTips": [
+            "Advisor recommendations are grouped into 5 categories \u2014 Cost, Security, Reliability, Operational Excellence, Performance. Memorize these."
+          ],
+          "plainEnglish": "Azure Advisor is like a personal trainer who reviews your workout routine and says 'you should lift heavier here, rest more there' \u2014 it looks at how you're actually using Azure and gives personalized suggestions to improve cost, security, reliability, performance, and operations.",
+          "quickCheck": {
+            "question": "Name the five recommendation categories Azure Advisor covers.",
+            "answer": "Cost, Security, Reliability, Operational Excellence, and Performance."
+          }
+        },
+        {
+          "id": "service-health",
+          "term": "Azure Service Health",
+          "definition": "A tool that provides personalized alerts and guidance about Azure service issues, planned maintenance, and health advisories that affect your specific resources.",
+          "gotchas": [
+            "Service Health is personalized to YOUR resources. Azure Status is the public, global status page for all Azure services generally \u2014 don't mix them up."
+          ],
+          "plainEnglish": "Service Health is like a personalized text alert from your airline about YOUR specific flight being delayed \u2014 it only tells you about issues affecting the services and regions you actually use.",
+          "quickCheck": {
+            "question": "What distinguishes Azure Service Health from the general Azure Status page?",
+            "answer": "Service Health is personalized to your specific resources/regions; Azure Status is a public, global dashboard not tailored to any customer."
+          }
+        },
+        {
+          "id": "azure-status",
+          "term": "Azure Status Page",
+          "definition": "A public, global dashboard showing the current health of Azure services across all regions, not personalized to any specific customer.",
+          "plainEnglish": "Azure Status is like the airport's giant public departures board showing every flight's status \u2014 useful for a general overview, but not personalized to your specific trip.",
+          "quickCheck": {
+            "question": "Is the Azure Status page personalized to show only the services a specific customer uses?",
+            "answer": "No \u2014 it's a public, global view of all Azure services' health, not tailored to any individual customer."
+          }
+        }
+      ]
+    },
+    {
+      "id": "sla-and-lifecycle",
+      "name": "SLAs and Service Lifecycle",
+      "concepts": [
+        {
+          "id": "sla",
+          "term": "Service Level Agreement (SLA)",
+          "definition": "A formal commitment from Microsoft defining the guaranteed uptime/performance level for a given service, often expressed in 'nines' (e.g., 99.9%).",
+          "examTips": [
+            "99% \u2248 3.65 days/year downtime.",
+            "99.9% \u2248 8.7 hours/year downtime.",
+            "99.95% \u2248 4.4 hours/year downtime.",
+            "99.99% \u2248 52.6 minutes/year downtime.",
+            "These conversions are frequently tested directly."
+          ],
+          "plainEnglish": "An SLA is like a pizza chain's promise: 'delivered in 30 minutes or it's free.' It's a formal, guaranteed commitment about how reliable or fast a service will be \u2014 and Azure backs its SLAs with service credits if it falls short.",
+          "quickCheck": {
+            "question": "Roughly how much yearly downtime does a 99.99% SLA allow?",
+            "answer": "About 52.6 minutes per year \u2014 memorize the 99% / 99.9% / 99.95% / 99.99% downtime conversions for the exam."
+          }
+        },
+        {
+          "id": "composite-sla",
+          "term": "Composite SLA",
+          "definition": "The combined effective SLA of a solution built from multiple services, calculated by multiplying the individual SLAs together \u2014 meaning a multi-service solution can have a LOWER combined SLA than any single component.",
+          "details": "Example: a web app (99.95%) + a database (99.99%) has a composite SLA of 99.95% \u00d7 99.99% \u2248 99.94%, which is lower than either individual SLA.",
+          "examTips": [
+            "Composite SLA is calculated by MULTIPLYING (not adding) individual percentages \u2014 a very common calculation question on the exam."
+          ],
+          "gotchas": [
+            "You can improve composite SLA by adding independent redundant paths (e.g., a fallback region), which uses a different formula (1 minus the product of failure probabilities) rather than simple multiplication."
+          ],
+          "plainEnglish": "Imagine a relay race where each runner has a 99% chance of not dropping the baton \u2014 the odds that EVERY runner successfully completes their leg is actually lower than any single runner's 99% individually. Composite SLA works the same way: chaining multiple services together multiplies their individual reliability percentages, which can produce a lower overall number than any one piece alone.",
+          "quickCheck": {
+            "question": "A web app has a 99.95% SLA and depends on a database with a 99.99% SLA. What's the approximate composite SLA of the combined solution?",
+            "answer": "About 99.94% (99.95% \u00d7 99.99%) \u2014 lower than either individual component's SLA, because composite SLA multiplies the two percentages together."
+          }
+        },
+        {
+          "id": "service-lifecycle-stages",
+          "term": "Service Lifecycle: Private/Public Preview and GA",
+          "definition": "Private Preview (limited, invite-only early access, no SLA), Public Preview (open to all, opt-in, typically no SLA), and General Availability (GA \u2014 fully supported, production-ready, SLA applies).",
+          "examTips": [
+            "Preview features (private or public) typically do NOT have an SLA and are not recommended for production workloads \u2014 this is a common exam trap."
+          ],
+          "plainEnglish": "It's like a restaurant doing a private tasting for a few trusted friends (Private Preview), then a 'soft opening' for the general public to try with a warning that the menu might still change (Public Preview), before finally having a full Grand Opening with an official guarantee of quality (General Availability).",
+          "quickCheck": {
+            "question": "Does a service in Public Preview typically come with a full SLA guarantee?",
+            "answer": "No \u2014 preview features (private or public) typically do NOT have an SLA and aren't recommended for production workloads."
+          }
+        },
+        {
+          "id": "support-plans",
+          "term": "Azure Support Plans",
+          "definition": "Tiered support offerings: Basic (free, billing/subscription support only), Developer, Standard, Professional Direct, and Premier/Unified, each offering progressively faster response times and deeper technical support.",
+          "examTips": [
+            "Know that Basic support is free and included with every subscription, but does NOT include technical support for troubleshooting \u2014 only billing/subscription management."
+          ],
+          "plainEnglish": "Basic support is like a store's return desk \u2014 free, but only handles basic account/billing questions, not 'my product is broken, help me fix it right now' technical troubleshooting. Higher tiers (Standard, Professional Direct, Premier) are like paying for a dedicated help line with faster response times.",
+          "quickCheck": {
+            "question": "Does the free Basic support plan include technical troubleshooting help?",
+            "answer": "No \u2014 Basic support is free but limited to billing/subscription management; technical support requires a paid plan (Developer, Standard, Professional Direct, or Premier/Unified)."
+          }
+        }
+      ]
+    },
+    {
+      "id": "responsible-ai",
+      "name": "Responsible AI",
+      "concepts": [
+        {
+          "id": "responsible-ai-principles",
+          "term": "Microsoft's Responsible AI Principles",
+          "definition": "Six principles Microsoft applies to guide the ethical development and deployment of AI systems: fairness, reliability & safety, privacy & security, inclusiveness, transparency, and accountability.",
+          "details": "These principles show up throughout Microsoft's AI product design and are directly tested on AZ-900 as part of understanding responsible use of AI/ML services like Cognitive Services and Azure Machine Learning.",
+          "plainEnglish": "Think of these as a code of ethics for building AI, similar to a doctor's Hippocratic Oath ('do no harm'). Each principle addresses a different risk: is the AI fair to everyone (fairness)? Does it work safely and consistently (reliability & safety)? Does it protect your data (privacy & security)? Does it work for people of all backgrounds and abilities (inclusiveness)? Is it honest about being AI and how it works (transparency)? And is there always a human ultimately responsible for what it does (accountability)?",
+          "examTips": [
+            "Memorize all six: Fairness, Reliability & Safety, Privacy & Security, Inclusiveness, Transparency, Accountability.",
+            "The exam often gives a short scenario and asks which single principle it best illustrates \u2014 practice matching scenarios to principles.",
+            "Example mappings: 'the AI discloses it's a bot, not a human' = Transparency. 'the model avoids bias against a demographic group' = Fairness. 'the app works with screen readers for visually impaired users' = Inclusiveness."
+          ],
+          "gotchas": [
+            "Transparency and Accountability are often confused: Transparency is about being open/clear (disclosing AI use, explaining how it works); Accountability is about humans remaining responsible for outcomes."
+          ],
+          "quickCheck": {
+            "question": "A company ensures their facial recognition AI is tested across diverse skin tones and demographics to avoid biased results. Which Responsible AI principle does this address?",
+            "answer": "Fairness \u2014 ensuring AI systems treat all people fairly and avoid discriminatory bias."
+          }
+        }
+      ]
+    }
+  ]
+}
